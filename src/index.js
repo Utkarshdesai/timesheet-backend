@@ -6,24 +6,13 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 // Configure CORS using explicit allowed origins
-const allowedOrigins = [
-  "http://localhost:5173",  // Local Dev
-  "https://timesheet-pied.vercel.app"  // Deployed Frontend
-];
+// const allowedOrigins = [
+//   "http://localhost:5173",  // Local Dev
+//   "https://timesheet-pied.vercel.app"  // Deployed Frontend
+// ];
 
 // Middleware
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true , // If using cookies/authentication
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use(cors())
 app.use(express.json());
 
 // Health check
@@ -54,3 +43,6 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
 });
+
+
+
