@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 4000;
 // Configure CORS using explicit allowed origins
 const allowedOrigins = [
   "http://localhost:5173",  // Local Dev
-  "https://task-management-frontend-kohl.vercel.app" // Deployed Frontend
+  "https://timesheet-pied.vercel.app/"  // Deployed Frontend
 ];
 
 // Middleware
