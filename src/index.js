@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 4000;
 // Configure CORS using explicit allowed origins
 const allowedOrigins = [
   "http://localhost:5173",  // Local Dev
-  "https://timesheet-pied.vercel.app/"  // Deployed Frontend
+  "https://timesheet-pied.vercel.app"  // Deployed Frontend
 ];
 
 // Middleware
@@ -20,9 +20,9 @@ app.use(cors({
       callback(new Error("Not allowed by CORS"));
     }
   },
+  credentials: true , // If using cookies/authentication
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
-  
 }));
 app.use(express.json());
 
